@@ -1,0 +1,21 @@
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background: white;
+  height: 100%;
+  margin-left: 5%;
+  margin-top: -1%; 
+  position: relative;
+
+}
+
+
+body {
+  background:url('https://media.giphy.com/media/10539PNHnSuPTi/giphy.gif');
+  background-size:cover; 
+  
+}
+
