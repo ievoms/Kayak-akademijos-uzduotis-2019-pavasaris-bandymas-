@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import React from 'react';
 
 import Autocomplete from '../autocomplete';
-import Fetch from './fetching';
+//import Fetch from './fetching';
 import Suggestions from '../app/suggestions';
 
 import styles from './app.css';
@@ -15,7 +15,8 @@ const App = () => (
     
     <Autocomplete />
     
-    <Fetch/>
+    {//<Fetch/>
+    }
         </div>
    
 );
