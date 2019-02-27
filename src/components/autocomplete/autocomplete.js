@@ -12,9 +12,7 @@ import styles from './autocomplete.css';
 export default class Autocomplete extends React.Component {
   constructor() {
     super();
-    this.items = [
-      this.fetching()
-    ]
+   
     this.state = {
       //loading: false,
       // movies: [],
@@ -24,16 +22,15 @@ export default class Autocomplete extends React.Component {
   }
 
   componentDidMount() {
-    console.log(";;;")
-  }
-  fetching() {
 
     const url = 'https://api.themoviedb.org/3/search/movie?api_key=cab2afe8b43cf5386e374c47aeef4fca&language=en-US&query=movie&page=1&include_adult=false'
     fetch(url).then(resp => resp.json())
       .then(data => {
         let title = data.resp.map((item) => {
           return (
-            <li key={item.title}>{item.title}</li>
+            <div key={item.title}>
+              {item.title}
+            </div>
           )
         })
         this.setState({ suggestions: title })
@@ -43,15 +40,17 @@ export default class Autocomplete extends React.Component {
 
 
   onTextChanged = (e) => {
-    console.log("kkkkkk");
+    console.log("on Text veikia");
     const value = e.target.value;
-    let suggestions = [];
+    let pasiulymai = [];
 
     if (value.length > 0) {
-      const regex = new RegExp('^${value}', 'i');
-      suggestions = this.items.sort().filter(v => regex.test(v));
+      const regex = new RegExp(event.target.value, 'i');
+      console.log("regex value: ", regex.value);
+      pasiulymai = this.suggestions.sort().filter(v => regex.test(v));
     }
-    this.setState(() => ({ suggestions }));
+    this.setState(() => ({suggestions: pasiulymai }));
+    console.log(this.state.pasiulymai);
   }
 
 
@@ -75,15 +74,22 @@ export default class Autocomplete extends React.Component {
 
       <div className={styles.container}>
 
-        <i className={"fa fa-user"} id="film"></i>
-        <input onChange={this.onTextChanged} className={styles.input} id="filmas" placeholder=" Enter movie name" autoComplete="on" />
-
+        <div className ={styles.InputWithIcon}>
+        <label className ={styles.label} for="filmas" >
+        {"Enter movie name"}
+        </label>
+          <input onChange={this.onTextChanged} className={styles.input} id="filmas" placeholder=" Enter movie name" autoComplete="on" />
+          <i className={"fa fa-film"} aria-hidden ="true"></i>
+        </div>
         <button type="sFbmit" className={styles.button}>
           <i className={"fa fa-search"}></i>
         </button>
         {//this.items.map((item) => <li key={item.title}>{item}</li>)
-          this.renderSuggestions()}
+         // this.renderSuggestions()}
+        // this.state.suggestions
         }
+
+        <p>{ this.state.suggestions }</p>
       </div>
 
     )
