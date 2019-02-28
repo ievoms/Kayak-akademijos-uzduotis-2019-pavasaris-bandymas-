@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": " cross-env NODE_ENV=dev & nodemon --exec babel-node --watch src/server src/server/dev",
+    "start": " NODE_ENV=dev & nodemon --exec babel-node --watch src/server src/server/dev",
     "start:prod": "node dist/server",
-    "build": " cross-env NODE_ENV=prod webpack --mode=production",
+    "build": "NODE_ENV=prod webpack --mode=production",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint 'src/**/*.js'"

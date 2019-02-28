@@ -3,7 +3,6 @@
     padding: 1rem;
     height: 9%;  
     position: flex;  
-  
 }
 
 .button{
@@ -14,49 +13,36 @@
     background: white;
     border: none;
     color: #e8381b;
-    
-
   }
-  #film{
-    float: left;
-    /* height: 10px; */
-  }
- 
 
- 
-  input{
+input{
     width: 90%;
     height: 90%;
     margin-top: 0.5rem;  
     display: flex;  
     float: left;
     padding-left: 40px ;
-    background-color: rgba(255, 255, 255, 0.25);
-    
-    border: none; 
-   
-    flex-grow: 1;
-    
+    background-color: rgba(255, 255, 255, 0.25);    
+    border: none;   
+    flex-grow: 1;    
   }
-  .InputWithIcon{
+
+.InputWithIcon{
     position: relative;
   }
 
-  .InputWithIcon i{
+.InputWithIcon i{
     position: absolute;
     left: 1.5%;
     padding-top: 2%;
     color: white;
   }
 
-
-
-  ::placeholder{
-      color: white
-      
-      
+::placeholder{
+      color: white  
   }
-  input:focus {
+
+input:focus {
     background-color: white;
     color: black; 
    outline: none;
@@ -64,19 +50,15 @@
    font-size:16; 
   
   }
-  input:focus +i {
-    
-  }
-  
-  @media only screen and (max-width: 600px) {
-    
-    .input{
-      color: black;
-    }
-    
+
+ input:focus +i {
+    color: black
   }
 
-
-
-
-
+.list{
+    position: absolute;
+    padding-top:70;
+    padding-left: 40;
+    font-size: 12;
+    
+  }
